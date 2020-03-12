@@ -8,7 +8,7 @@ copy_drive_letter = "G"
 
 
 def hasdrive(main, copy):
-    if os.system("vol %s: 2>nul>nul" % (main)) == 0 and os.system("vol %s: 2>nul>nul" % (copy)) == 0:
+    if os.system("vol %s: 2>nul>nul" % main) == 0 and os.system("vol %s: 2>nul>nul" % copy) == 0:
         return True
             
 

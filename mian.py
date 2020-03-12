@@ -26,7 +26,6 @@ def space():
     total, used, free = shutil.disk_usage("/")
 
 
-
 if __name__ == "__main__":
     if connected():
-        """meh"""
+        print("lol")

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Drive-Backup.iml" filepath="$PROJECT_DIR$/.idea/Drive-Backup.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../IA2_digital_sol/.idea/IA2_digital_sol.iml" filepath="$PROJECT_DIR$/../IA2_digital_sol/.idea/IA2_digital_sol.iml" />
     </modules>
   </component>
 </project>

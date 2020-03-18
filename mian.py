@@ -54,4 +54,7 @@ def space():
 
 if __name__ == "__main__":
     if connected():
+        exist_check()
         clone_drive()
+    else:
+        print("error")

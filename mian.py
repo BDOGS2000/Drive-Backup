@@ -8,17 +8,20 @@ copy_drive = "G"
 
 def find_drive():
     if os.system("vol %s: 2>nul>nul" % main_drive) == 0 and os.system("vol %s: 2>nul>nul" % copy_drive) == 0:
-        space()
+        if space():
+            return True
+        else:
+            return False
     else:
         return False
-            
+
 
 def internet_check():
     return requests.get('https://google.com').ok
 
 
 def connected():
-    if find_drive() and internet_check():
+    if internet_check() and find_drive():
         return True
     else:
         return False

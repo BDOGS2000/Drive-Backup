@@ -1,9 +1,16 @@
 import requests
 import os
 import shutil
+import datetime
 
 main_drive = "D"
 copy_drive = "G"
+
+
+def clone_drive():
+    g_drive_name = copy_drive + ":\\My Drive\\d_backup\\BU"
+    shutil.make_archive(g_drive_name, 'zip', 'D:\\school')
+    print("done")
 
 
 def find_drive():
@@ -37,4 +44,7 @@ def space():
 
 
 if __name__ == "__main__":
-    print(connected())
+    if connected():
+        clone_drive()
+    else:
+        print("yeeeeet")

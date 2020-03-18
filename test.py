@@ -1,4 +1,6 @@
-import shutil
+import os
 
-total1 = shutil.disk_usage("C:")
-print("lol")
+print(os.chdir('C:\\'))
+
+if __name__ == "__main__":
+    pass

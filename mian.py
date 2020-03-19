@@ -12,7 +12,6 @@ import multiprocessing
 main_drive = "D"
 copy_drive = "G"
 copy_drive_path = copy_drive + ":\\My Drive\\d_backup"
-done = False
 
 
 def exist_check():
@@ -23,8 +22,7 @@ def exist_check():
 
 
 def clone_drive():
-    shutil.make_archive(copy_drive_path + "\\BU_" + str(datetime.date(datetime.now())), 'zip', main_drive + ':\\everything\\School')
-    done = True
+    shutil.make_archive(copy_drive_path + "\\BU_" + str(datetime.date(datetime.now())), 'zip', main_drive + ':\\everything')
 
 
 def find_drive():
@@ -59,7 +57,7 @@ def space():
 
 
 def loading():
-    while not done:
+    while p.is_alive():
         for _ in tqdm(range(100)):
             time.sleep(0.1)
 
@@ -71,6 +69,6 @@ if __name__ == "__main__":
         p.start()
         loading()
         p.join()
-        print("done")
+        print("Done!!!!")
     else:
         print("error")

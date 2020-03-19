@@ -14,7 +14,7 @@ def exist_check():
     only_files = [f for f in listdir(copy_drive_path) if isfile(join(copy_drive_path, f))]
     for i in only_files:
         if i.split(".")[1] == "zip":
-            unlink(copy_drive_path + i)
+            unlink(copy_drive_path + "\\" + i)
 
 
 def clone_drive():

@@ -59,13 +59,12 @@ def space():
 
 
 def loading():
-    while done:
+    while not done:
         for _ in tqdm(range(100)):
             time.sleep(0.1)
 
 
 if __name__ == "__main__":
-    print("lol")
     if connected():
         exist_check()
         p = multiprocessing.Process(target=clone_drive)

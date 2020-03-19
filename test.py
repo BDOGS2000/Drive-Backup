@@ -1,16 +1,23 @@
-import os
-from os import listdir, unlink
-from os.path import isfile, join
-
-copy_drive_path = "G:\\My Drive\\d_backup"
+import logging
+import threading
+import time
 
 
-def lol():
-    onlyfiles = [f for f in listdir(copy_drive_path) if isfile(join(copy_drive_path, f))]
-    for i in onlyfiles:
-        if i.split(".")[1] == "zip":
-            print("got it")
+def thread_function(name):
+    logging.info("Thread %s: starting", name)
+    time.sleep(2)
+    logging.info("Thread %s: finishing", name)
 
 
 if __name__ == "__main__":
-    lol()
+    tim = "%(asctime)s: %(message)s"
+    logging.basicConfig(format=tim, level=logging.INFO,
+                        datefmt="%H:%M:%S")
+
+    logging.info("Main    : before creating thread")
+    x = threading.Thread(target=thread_function, args=(1,))
+    logging.info("Main    : before running thread")
+    x.start()
+    logging.info("Main    : wait for the thread to finish")
+    # x.join()
+    logging.info("Main    : all done")

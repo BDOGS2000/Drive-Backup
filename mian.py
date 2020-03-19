@@ -18,12 +18,13 @@ def exist_check():
 
 
 def clone_drive():
-    shutil.make_archive(copy_drive_path + "\\BU_" + str(datetime.date(datetime.now())), 'zip', main_drive + ':\\school')
+    shutil.make_archive(copy_drive_path + "\\BU_" + str(datetime.date(datetime.now())), 'zip', main_drive + ':\\everything')
     print("done")
 
 
 def find_drive():
     if os.system("vol %s: 2>nul>nul" % main_drive) == 0 and os.system("vol %s: 2>nul>nul" % copy_drive) == 0:
+        exist_check()
         if space():
             return True
         else:

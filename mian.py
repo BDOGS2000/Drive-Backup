@@ -1,4 +1,3 @@
-from threading import Thread
 import requests
 import os
 import shutil
@@ -7,6 +6,7 @@ from os import listdir, unlink
 from os.path import isfile, join
 import time
 from tqdm import tqdm
+import threading
 
 
 main_drive = "D"
@@ -22,7 +22,7 @@ def exist_check():
 
 
 def clone_drive():
-    shutil.make_archive(copy_drive_path + "\\BU_" + str(datetime.date(datetime.now())), 'zip', main_drive + ':\\everything')
+    shutil.make_archive(copy_drive_path + "\\BU_" + str(datetime.date(datetime.now())), 'zip', main_drive + ':\\everything\\School')
 
 
 def find_drive():
@@ -59,14 +59,17 @@ def space():
 def loading():
     while t.isAlive():
         for i in tqdm(range(10)):
+            print("Okay" + i)
             time.sleep(3)
 
 
 if __name__ == "__main__":
     if connected():
         exist_check()
-        t = Thread(target=clone_drive(), daemon=True)
+        t = threading.Thread(target=clone_drive())
+        print(t.isAlive())
         t.start()
-        loading()
+        # loading()
+        print(t.isAlive())
     else:
         print("error")

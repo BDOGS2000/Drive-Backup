@@ -33,11 +33,16 @@ def find_drive():
         else:
             return False
     else:
+        print("Drives Not Found")
         return False
 
 
 def internet_check():
-    return requests.get('https://google.com').ok
+    if requests.get('https://google.com').ok:
+        print("No Internet")
+        return True
+    else:
+        return False
 
 
 def connected():
@@ -53,13 +58,14 @@ def space():
     if usage_main[1] <= usage_copy[2]:
         return True
     else:
+        print("Not enough Space")
         return False
 
 
 def loading():
     while p.is_alive():
-        for _ in tqdm(range(100)):
-            time.sleep(0.1)
+        for _ in tqdm(range(10000000), desc="Loading..."):
+            pass
 
 
 if __name__ == "__main__":

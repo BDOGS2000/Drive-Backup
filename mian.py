@@ -4,7 +4,6 @@ import shutil
 from datetime import datetime
 from os import listdir, unlink
 from os.path import isfile, join
-import time
 from tqdm import tqdm
 import multiprocessing
 
